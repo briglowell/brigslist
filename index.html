@@ -15,46 +15,141 @@
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
                 <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
-                <span class="ml-2">latefall20-gregslist</span>
+                <span class="ml-2">brigslist</span>
+                <span class = "ml-5">
+                    <button id = "car-btn" class = "btn btn-primary" onClick = "app.carsController.toggleVisibility()">Cars</button>
+                    <button id = "home-btn" class = "btn btn-primary" onClick = "app.homesController.toggleVisibility()" >Homes</button>
+                    <button id = "job-btn" class = "btn btn-primary" onClick = "app.jobsController.toggleVisibility()" >Jobs</button>
+                </span>
             </a>
         </nav>
     </header>
     <main class="container-fluid">
-        <div class="row">
-            <div class="col" id="form">
-                <form onsubmit="app.carsController.createCar()" class="form-inline">
+
+        <div id="car-listings" class="hidden">
+            <div class="row bg-gray"><div class="col"><h1>Car Listings</h1></div></div>
+            <div class="row">
+                <div class="col" id="form">
+                    <form onsubmit="app.carsController.createCar()" class="form-inline">
+                        <div class="form-group p-1">
+                            <input type="text"
+                        class="form-control" name="make" id="make" aria-describedby="helpId" placeholder="Make">
+                    </div> 
                     <div class="form-group p-1">
                         <input type="text"
-                    class="form-control" name="make" id="make" aria-describedby="helpId" placeholder="Make">
-                </div> 
-                <div class="form-group p-1">
-                    <input type="text"
-                    class="form-control" name="model" id="model" aria-describedby="helpId" placeholder="Model">
-                </div>
-                <div class="form-group p-1">
-                    <input type="number"
-                    class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="Price">
-                </div>
-                  <div class="form-group p-1">
-                      <input type="number"
-                      class="form-control" name="year" id="year" aria-describedby="helpId" placeholder="Year">
-                  </div>
-                  <div class="form-group p-1">
-                      <input type="url"
-                      class="form-control" name="imgUrl" id="imgUrl" aria-describedby="helpId" placeholder="Img">
+                        class="form-control" name="model" id="model" aria-describedby="helpId" placeholder="Model">
                     </div>
                     <div class="form-group p-1">
-                    <input type="text"
-                    class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="Description">
-                  </div>
-                  <button class="btn btn-primary" type="submit">Post</button>
-                </form>
+                        <input type="number"
+                        class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="Price">
+                    </div>
+                    <div class="form-group p-1">
+                        <input type="number"
+                        class="form-control" name="year" id="year" aria-describedby="helpId" placeholder="Year">
+                    </div>
+                    <div class="form-group p-1">
+                        <input type="url"
+                        class="form-control" name="imgUrl" id="imgUrl" aria-describedby="helpId" placeholder="Img">
+                        </div>
+                        <div class="form-group p-1">
+                        <input type="text"
+                        class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="Description">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Post</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="cars">
             </div>
         </div>
-        <div class="row" id="cars">
-            
+
+        <div id ="home-listings" class="hidden">
+            <div class="row bg-gray"><div class="col"><h1>Home Listings</h1></div></div>
+            <div class="row">
+                <div class="col" id="hform">
+                    <form onsubmit="app.homesController.createHomeListing()" class="form-inline">
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="hyear" id="hyear" aria-describedby="helpId" placeholder="Year">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text"
+                            class="form-control" name="hmodel" id="hmodel" aria-describedby="helpId" placeholder="Model">
+                        </div> 
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="hbeds" id="hbeds" aria-describedby="helpId" placeholder="Number of Beds">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="hbaths" id="hbaths" aria-describedby="helpId" placeholder="Number of Baths">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="sqft" id="sqft" aria-describedby="helpId" placeholder="Square Footage">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="hprice" id="hprice" aria-describedby="helpId" placeholder="Price">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="url"
+                            class="form-control" name="himg" id="himg" aria-describedby="helpId" placeholder="Img">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text"
+                            class="form-control" name="hdescription" id="hdescription" aria-describedby="helpId" placeholder="Description">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Post</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="homes">
+            </div>
+        </div>
+
+        <div id ="job-listings" class="hidden">
+            <div class="row bg-gray"><div class="col"><h1>Job Listings</h1></div></div>
+            <div class="row">
+                <div class="col" id="hform">
+                    <form onsubmit="app.jobsController.createJobListing()" class="form-inline">
+                        <div class="form-group p-1">
+                            <input type="text"
+                            class="form-control" name="position" id="position" aria-describedby="helpId" placeholder="Position">
+                        </div> 
+                        <div class="form-group p-1">
+                            <input type="text"
+                            class="form-control" name="company" id="company" aria-describedby="helpId" placeholder="Company">
+                        </div> 
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="age" id="age" aria-describedby="helpId" placeholder="Age Required">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="jyear" id="jyear" aria-describedby="helpId" placeholder="Years Experience">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="number"
+                            class="form-control" name="wage" id="wage" aria-describedby="helpId" placeholder="Starting Wage">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="url"
+                            class="form-control" name="himg" id="himg" aria-describedby="helpId" placeholder="Img">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text"
+                            class="form-control" name="jdescription" id="jdescription" aria-describedby="helpId" placeholder="Description">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Post</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="jobs">
+            </div>
         </div>
     </main>
+    
     <footer class="container-fluid bg-dark text-light">
         <div class="row text-center">
             <div class="col">

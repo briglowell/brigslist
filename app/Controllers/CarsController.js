@@ -16,6 +16,12 @@ export default class CarsController{
     ProxyState.on("cars", _draw)
   }
 
+  toggleVisibility(){
+    document.getElementById("car-listings").classList.remove("hidden")
+    document.getElementById("home-listings").classList.add("hidden")
+    document.getElementById("job-listings").classList.add("hidden")
+  }
+
   createCar(){
     event.preventDefault();
     console.log("car creating")
